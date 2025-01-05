@@ -16,8 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.documentElement.setAttribute('data-theme', currentTheme);
   updateThemeIcon(currentTheme);
 
-  // 监听主题切换按钮点击事件
-  themeSwitch.addEventListener('click', () => {
+  // 阻止链接默认行为
+  themeSwitch.addEventListener('click', (e) => {
+    e.preventDefault();
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
@@ -38,11 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function updateThemeIcon(theme) {
   const icon = document.getElementById('theme-icon');
-  if (theme === 'dark') {
-    icon.classList.remove('fa-sun');
-    icon.classList.add('fa-moon');
-  } else {
-    icon.classList.remove('fa-moon');
-    icon.classList.add('fa-sun');
+  if (icon) {
+    if (theme === 'dark') {
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+    } else {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    }
   }
 }

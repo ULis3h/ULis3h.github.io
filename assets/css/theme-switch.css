@@ -26,35 +26,38 @@ body {
   transition: background-color 0.3s ease;
 }
 
-/* Theme switch button styles */
-.theme-switch-wrapper {
-  display: flex;
-  align-items: center;
-  margin: 0 15px;
-}
-
-.theme-switch {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
+/* Theme switch styles */
+#theme-switch {
   cursor: pointer;
-  background: none;
-  border: none;
-  color: var(--text-color);
-  border-radius: 50%;
-  transition: all 0.3s ease;
 }
 
-.theme-switch:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.theme-switch i {
-  font-size: 1.2rem;
+#theme-icon {
+  margin-right: 0.5rem;
   transition: transform 0.3s ease;
 }
 
-.theme-switch:hover i {
+#theme-switch:hover #theme-icon {
   transform: rotate(30deg);
+}
+
+.theme-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Dark theme specific styles */
+[data-theme="dark"] .navbar-light .navbar-nav .nav-link {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .navbar-light .navbar-nav .nav-link:hover {
+  color: var(--hover-color);
+}
+
+[data-theme="dark"] .navbar-light .navbar-brand {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .navbar-light .navbar-toggler-icon {
+  filter: invert(1);
 }
