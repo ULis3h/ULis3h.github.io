@@ -22,10 +22,9 @@ author: ULis3h
 navbar-links:
   About Me: "aboutme"
   Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
-  Algorithm Visualizations: "https://ulis3h.github.io/algorithm-visualizations/"
+    - Algorithm Visualizations: "https://ulis3h.github.io/algorithm-visualizations/"
+  Author's home: "https://macrocosmdb.io"
+
 
 ################
 # --- Logo --- #
