@@ -1,0 +1,40 @@
+/* Theme switch styles */
+:root {
+  --bg-color: #fff;
+  --text-color: #404040;
+  --link-color: #008AFF;
+  --hover-color: #0085A1;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #e4e4e4;
+  --link-color: #66b3ff;
+  --hover-color: #99ccff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme switch button styles */
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--text-color);
+}
+
+.theme-switch:hover {
+  opacity: 0.8;
+}
+
+.theme-switch i {
+  font-size: 1.2rem;
+}
