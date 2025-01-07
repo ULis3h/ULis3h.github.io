@@ -19,9 +19,9 @@ HNSW（层次化可导航小世界）是一种高效的最近邻搜索算法，�
 
 ### 近似最近邻搜索问题定义
 
-给定一个包含n个d维向量的数据集合 $$ \subset \mathbb{R}^d $$，对于任意查询点 $$q \in \mathbb{R}^d$$，找到一个点 $$p \in S$$，使得：
+给定一个包含n个d维向量的数据集合 $$S \subset \mathbb{R}^d $$，对于任意查询点 $$q \in \mathbb{R}^d$$，找到一个点 $$p \in S$$，使得：
 
-$d(p,q) \leq (1+\epsilon) \cdot d(p^*,q)$
+$$d(p,q) \leq (1+\epsilon) \cdot d(p^*,q)$$
 
 其中，$p^*$ 是真实的最近邻点，$\epsilon > 0$ 是近似因子，$d(\cdot,\cdot)$ 是距离度量函数。
 
@@ -55,13 +55,13 @@ HNSW将数据点组织成一个层次化的结构，包含多个层级的图：
 
 图的形式化定义为：
 
-$G_l = (V_l, E_l), l = 0,1,...,L$
+$$G_l = (V_l, E_l), l = 0,1,...,L$$
 
 其中：
-- $G_l$ 表示第l层图
-- $V_l$ 是第l层的节点集合
-- $E_l$ 是第l层的边集合
-- $L$ 是最大层数
+- $$G_l$$ 表示第l层图
+- $$V_l$$ 是第l层的节点集合
+- $$E_l$$ 是第l层的边集合
+- $$L$$ 是最大层数
 
 ### 层级划分策略
 
@@ -69,23 +69,23 @@ $G_l = (V_l, E_l), l = 0,1,...,L$
 
 1. 对于每个新插入的节点，其最大层级 $l_{max}$ 通过以下概率分布确定：
 
-   $P(l_{max} = l) = p^l(1-p)$
+   $$P(l_{max} = l) = p^l(1-p)$$
 
    其中 $p$ 是一个常数（通常取0.5），这将产生一个几何分布。
 
 2. 这种分层策略确保了：
    - 节点数量随层级增加呈指数衰减
-   - 平均而言，第 $l$ 层的节点数约为 $n \cdot p^l$
-   - 最高层级期望为 $O(\log_{1/p} n)$
+   - 平均而言，第 $$l$ 层的节点数约为 $n \cdot p^l$$
+   - 最高层级期望为 $$O(\log_{1/p} n)$$
 
 ### 节点连接规则
 
 HNSW的每层图都是一个近似最近邻图（Approximate k-NN Graph），其连接规则如下：
 
 1. **邻居数量控制**：
-   - 每层设置最大出度 $M$
-   - 底层可以设置更大的最大出度 $M_0$
-   - 实际实现中通常 $M_0 = 2M$
+   - 每层设置最大出度 $$M$$
+   - 底层可以设置更大的最大出度 $$M_0$$
+   - 实际实现中通常 $$M_0 = 2M$$
 
 2. **邻居选择策略**：
    - 使用启发式算法选择最优邻居
@@ -151,116 +151,3 @@ HNSW的每层图都是一个近似最近邻图（Approximate k-NN Graph），其
 1. **算法优势总结**
 2. **原始论文引用**
 3. **扩展阅读资料**
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-**Here is some bold text**
-
-## Here is a secondary heading
-
-[This is a link to a different site](https://deanattali.com/) and [this is a link to a section inside this page](#local-urls).
-
-Here's a table:
-
-| Number | Next number | Previous number |
-| :----- | :---------- | :-------------- |
-| Five   | Six         | Four            |
-| Ten    | Eleven      | Nine            |
-| Seven  | Eight       | Six             |
-| Two    | Three       | One             |
-
-You can use [MathJax](https://www.mathjax.org/) to write LaTeX expressions. For example:
-When \\(a \ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are 
-
-$$
-x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
-$$
-
-How about a yummy crepe?
-
-![Crepe](https://beautifuljekyll.com/assets/img/crepe.jpg)
-
-It can also be centered!
-
-![Crepe](https://beautifuljekyll.com/assets/img/crepe.jpg){: .mx-auto.d-block :}
-
-Here's a code chunk:
-
-```
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-```
-
-And here is the same code with syntax highlighting:
-
-```javascript
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-```
-
-And here is the same code yet again but with line numbers:
-
-{% highlight javascript linenos %}
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-{% endhighlight %}
-
-## Boxes
-
-You can add notification, warning and error boxes like this:
-
-### Notification
-
-{: .box-note}
-**Note:** This is a notification box.
-
-### Warning
-
-{: .box-warning}
-**Warning:** This is a warning box.
-
-### Error
-
-{: .box-error}
-**Error:** This is an error box.
-
-## Local URLs in project sites
-
-When hosting a *project site* on GitHub Pages (for example, `https://USERNAME.github.io/MyProject`), URLs that begin with `/` and refer to local files may not work correctly due to how the root URL (`/`) is interpreted by GitHub Pages. You can read more about it [in the FAQ](https://beautifuljekyll.com/faq/#links-in-project-page). To demonstrate the issue, the following local image will be broken **if your site is a project site:**
-
-![Crepe](/assets/img/crepe.jpg)
-
-If the above image is broken, then you'll need to follow the instructions [in the FAQ](https://beautifuljekyll.com/faq/#links-in-project-page). Here is proof that it can be fixed:
-
-![Crepe]({{ '/assets/img/crepe.jpg' | relative_url }})
