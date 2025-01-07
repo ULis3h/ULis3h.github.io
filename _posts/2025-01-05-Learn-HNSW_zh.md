@@ -95,8 +95,8 @@ HNSW的每层图都是一个近似最近邻图（Approximate k-NN Graph），其
 ## 核心算法流程
 ### 构建过程
 构建算法在原始论文的`Algorithm 1`中给出， 伪代码如下：
+{{ ... }}
 {: .box-note}
-**Note:**
 **INSERT(hnsw, q, M, Mmax, efConstruction, mL)**  
 **输入：**  
 - multilayer graph hnsw: 多层图 hnsw  
@@ -130,10 +130,7 @@ HNSW的每层图都是一个近似最近邻图（Approximate k-NN Graph），其
 17     ep ← W // 更新进入点 ep
 18 if l > L
 19     set enter point for hnsw to q // 将 hnsw 的进入点设置为 q
-```
-
-
-
+{{ ... }}
 
 
 
