@@ -23,7 +23,7 @@ HNSW（层次化可导航小世界）是一种高效的最近邻搜索算法，�
 
 $$d(p,q) \leq (1+\epsilon) \cdot d(p^*,q)$$
 
-其中，$p^*$ 是真实的最近邻点，$$\epsilon > 0$$ 是近似因子，$$d(\cdot,\cdot)$$ 是距离度量函数。
+其中，$$p^*$$ 是真实的最近邻点，$$\epsilon > 0$$ 是近似因子，$$d(\cdot,\cdot)$$ 是距离度量函数。
 
 ### NSW的基础概念
 
@@ -75,7 +75,7 @@ $$G_l = (V_l, E_l), l = 0,1,...,L$$
 
 2. 这种分层策略确保了：
    - 节点数量随层级增加呈指数衰减
-   - 平均而言，第 $$l$$ 层的节点数约为 $n \cdot p^l$$
+   - 平均而言，第 $$l$$ 层的节点数约为 $$n \cdot p^l$$
    - 最高层级期望为 $$O(\log_{1/p} n)$$
 
 ### 节点连接规则
@@ -101,11 +101,11 @@ HNSW的每层图都是一个近似最近邻图（Approximate k-NN Graph），其
 **INSERT(hnsw, q, M, Mmax, efConstruction, mL)**  
 **输入：**  
 - multilayer graph hnsw: 多层图 hnsw  
-- new element q: 新元素 q  
-- $$\(M\)$$: 已建立连接的数量 M  
-- $$M_{\text{max}}$$ : 每层中每个元素的最大连接数 Mmax  
-- size of the dynamic candidate list efConstruction: 动态候选列表的大小 efConstruction  
-- normalization factor for level generation mL: 层级生成的归一化因子 mL  
+- new element q: 新元素 $$q$$  
+- $$M$$: 已建立连接的数量 $$M$$  
+- $$M_{\text{max}}$$ : 每层中每个元素的最大连接数 $$Mmax$$  
+- size of the dynamic candidate list efConstruction: 动态候选列表的大小 $$efConstruction$$
+- normalization factor for level generation $$m_L$$: 层级生成的归一化因子 $$m_L$$  
 
 **输出：**  
 - update hnsw inserting element q: 更新后的 hnsw，插入了元素 q  
