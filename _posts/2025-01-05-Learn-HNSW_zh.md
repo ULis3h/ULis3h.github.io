@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 层次化可导航小世界（HNSW）
-subtitle: There's lots to learn!
+subtitle: Today is new!
 gh-repo: ULis3h/algorithm-visualizations
 gh-badge: [star, fork, follow]
 tags: [ANN, HNSW, vector quantization, ai, machine learning]
@@ -102,8 +102,8 @@ HNSW的每层图都是一个近似最近邻图（Approximate k-NN Graph），其
 **输入：**  
 - multilayer graph hnsw: 多层图 hnsw  
 - new element q: 新元素 q  
-- \(M\): 已建立连接的数量 M  
-- $M_{\text{max}}$ : 每层中每个元素的最大连接数 Mmax  
+- $$\(M\)$$: 已建立连接的数量 M  
+- $$M_{\text{max}}$$ : 每层中每个元素的最大连接数 Mmax  
 - size of the dynamic candidate list efConstruction: 动态候选列表的大小 efConstruction  
 - normalization factor for level generation mL: 层级生成的归一化因子 mL  
 
